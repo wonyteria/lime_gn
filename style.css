@@ -69,3 +69,12 @@
 
 
 #visit .root_daum_roughmap .cont { display: none; }
+
+/* 실제 객실 세로 사진: 구조가 잘리지 않도록 원본 비율을 온전히 표시 */
+.room>img{aspect-ratio:4/3;object-fit:contain;object-position:center;background:#e8e2d6}
+.gallery-title{scroll-margin-top:110px}
+.room-gallery{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.room-gallery .zoom{background:#e8e2d6}
+.room-gallery .zoom img{aspect-ratio:3/4;object-fit:contain}
+@media(max-width:850px){.room-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.room>img{aspect-ratio:3/4}.room-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
