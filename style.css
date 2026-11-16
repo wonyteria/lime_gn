@@ -78,3 +78,15 @@
 .room-gallery .zoom img{aspect-ratio:3/4;object-fit:contain}
 @media(max-width:850px){.room-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.room>img{aspect-ratio:3/4}.room-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.room[href="#mini-room-inside"] > img,
+#mini-room-inside + .room-gallery .zoom img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+#mini-room-inside + .room-gallery .zoom:hover img {
+  transform: none;
+}
