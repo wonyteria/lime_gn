@@ -81,6 +81,7 @@
 
 .room[href="#mini-room-inside"] > img,
 .room[href="#mini-room-outside"] > img,
+.room[href="#mini-studio-inside"] > img,
 #mini-room-inside + .room-gallery .zoom img {
   display: block;
   width: 100%;
@@ -88,7 +89,8 @@
   aspect-ratio: auto;
 }
 
-#mini-room-outside + .room-gallery .zoom img {
+#mini-room-outside + .room-gallery .zoom img,
+#mini-studio-inside + .room-gallery .zoom img {
   display: block;
   width: 100%;
   height: auto;
@@ -98,6 +100,7 @@
 }
 
 #mini-room-inside + .room-gallery .zoom:hover img,
-#mini-room-outside + .room-gallery .zoom:hover img {
+#mini-room-outside + .room-gallery .zoom:hover img,
+#mini-studio-inside + .room-gallery .zoom:hover img {
   transform: none;
 }
