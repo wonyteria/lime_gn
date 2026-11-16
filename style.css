@@ -113,3 +113,47 @@
 #mini-studio-outside + .room-gallery .zoom:hover img {
   transform: none;
 }
+
+#faq-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.faq-grid > div {
+  padding: clamp(1rem, 3vw, 1.65rem);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.faq-grid dt {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 750;
+  word-break: keep-all;
+}
+
+.faq-grid dd {
+  margin: .6rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.faq-grid a {
+  color: #34563e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+@media (max-width: 680px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
