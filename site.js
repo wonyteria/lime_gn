@@ -44,3 +44,14 @@ slides.slice(1).forEach(([file]) => { const preload = new Image(); preload.src =
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   setInterval(() => showSlide((slideIndex + 1) % slides.length), 7000);
 }
+
+document.querySelectorAll('#faq a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const section = document.getElementById(link.hash.slice(1));
+    if (!section) return;
+    event.preventDefault();
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+    section.scrollIntoView({ behavior: 'instant', block: 'start' });
+  });
+});
