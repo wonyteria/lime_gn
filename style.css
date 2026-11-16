@@ -90,6 +90,12 @@
   aspect-ratio: auto;
 }
 
+.room[href="#mini-room-inside"] > img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 65%;
+}
+
 #mini-room-outside + .room-gallery .zoom img,
 #mini-studio-inside + .room-gallery .zoom img,
 #mini-studio-outside + .room-gallery .zoom img {
