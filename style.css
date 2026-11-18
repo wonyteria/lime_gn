@@ -157,3 +157,18 @@
 @media (max-width: 680px) {
   .faq-grid { grid-template-columns: 1fr; }
 }
+
+/* 히어로 제목: 키워드 한 덩어리 유지, 2단 배치(621px~)에서는 3줄 높이를 확보해 슬라이드가 바뀔 때 화면이 출렁이지 않게 */
+.nw{white-space:nowrap}
+.hero h1 span.nw{color:inherit}
+@media(min-width:621px){
+  .hero h1{min-height:3.54em}
+}
+
+/* 모바일 하단 고정 전화 문의 */
+.m-call{display:none}
+@media(max-width:620px){
+  .m-call{display:flex;align-items:center;justify-content:center;position:fixed;left:0;right:0;bottom:0;z-index:3;min-height:56px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#4b5639;color:#fff;font-weight:800;font-size:16px;letter-spacing:-.01em;box-shadow:0 -4px 16px #34392826}
+  .m-call:focus-visible{outline:3px solid var(--lime);outline-offset:-6px}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+}

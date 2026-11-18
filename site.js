@@ -23,7 +23,7 @@ const heroCaption = hero.querySelector('figcaption');
 const heroHeading = hero.querySelector('h1');
 const heroLead = hero.querySelector('.lead');
 const slides = [
-  ['IMG_7558.jpg', '라임하우스 지하 카페테리아', '아침부터 챙겨주는', '학사형 원룸텔', '지하 카페테리아 조식과', '세탁·모닝콜 서비스를 이용하세요.'],
+  ['IMG_7558.jpg', '라임하우스 지하 카페테리아', '아침부터 챙겨주는', '강남역 고시원·원룸텔', '지하 카페테리아 조식과', '세탁·모닝콜 서비스를 이용하세요.'],
   ['KakaoTalk_20220105_231420612.jpg', '라임하우스 세탁실', '세탁은 가볍게,', '공부에 집중할 시간은 더 길게', '지하 세탁실에 세탁기와 건조기가', '각각 4대씩 마련되어 있습니다.'],
   ['사진2-1-1.jpg', '라임하우스 건물 외관', '강남역 4번 출구에서', '도보 5분', '서울 강남구 역삼로5길 5', '라임하우스 강남역점'],
   ["IMG_7561.jpg", "카페테리아 입구 쪽 통로", "지하 카페테리아로", "이어지는 통로", "라임하우스 지하에서", "카페테리아를 이용하실 수 있습니다."],
@@ -31,13 +31,23 @@ const slides = [
   ["Untitled-6.jpg", "라임하우스 객실 복도", "객실로 이어지는", "라임하우스 복도", "미니룸과 미니원룸을", "객실 둘러보기에서 확인하세요."]
 ];
 let slideIndex = 0;
+// '고시원·원룸텔'은 줄바꿈 때 중간에서 끊기지 않게 한 덩어리로 유지 (index.html 의 첫 H1과 같은 모양)
+function nowrapKeyword(text) {
+  const keyword = '고시원·원룸텔';
+  const at = text.indexOf(keyword);
+  if (at < 0) return [text];
+  const span = document.createElement('span');
+  span.className = 'nw';
+  span.textContent = keyword;
+  return [text.slice(0, at), span, text.slice(at + keyword.length)].filter(part => part !== '');
+}
 function showSlide(index) {
   slideIndex = index;
   const [file, caption, title, titleEnd, lead, leadEnd] = slides[index];
   heroPhoto.src = 'assets/' + file;
   heroPhoto.alt = caption;
   heroCaption.textContent = caption;
-  heroHeading.replaceChildren(title, document.createElement('br'), titleEnd);
+  heroHeading.replaceChildren(title, document.createElement('br'), ...nowrapKeyword(titleEnd));
   heroLead.replaceChildren(lead, document.createElement('br'), leadEnd);
 } 
 slides.slice(1).forEach(([file]) => { const preload = new Image(); preload.src = 'assets/' + file; });
